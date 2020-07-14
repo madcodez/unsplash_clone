@@ -1,6 +1,6 @@
 import React from "react";
 
-import NavBar from "./NavBar";
+import NavBarContainer from "./NavBarContainer";
 import ImageContainer from "./ImageContainer";
 import Login from "./Login";
 import ImageEdit from "./ImageEditContainer";
@@ -20,12 +20,13 @@ class App extends React.Component {
 
   componentDidMount() {
     store.dispatch(getImages());
+    store.dispatch(getAuth());
   }
   render() {
     return (
       <Router history={history}>
         <>
-          <NavBar />
+          <NavBarContainer />
           <div className="App">
             <Switch>
               <Route path="/login" component={Login} />

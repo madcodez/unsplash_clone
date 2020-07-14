@@ -8,7 +8,7 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import MenuIcon from "@material-ui/icons/Menu";
 import IconButton from "@material-ui/core/IconButton";
-import { connect } from "react-redux";
+
 import { setAuth } from "./actions/authAction";
 
 const useStyles = makeStyles((theme) => ({
@@ -26,14 +26,24 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function NavBar() {
-  // const [auth, setAuth] = React.useState(true);
-
-  // console.log(cart)
-
-  //const { auth } = props;
+export default function NavBar({ auth }) {
+  function handleLogout() {
+    const { dispatch } = this.props;
+    dispatch(setAuth());
+  }
   const classes = useStyles();
+  const user = (
+    <Button color="inherit">
+      <a href=" ">Logout</a>
+    </Button>
+  );
 
+  const guest = (
+    <Button color="inherit">
+      <Link to="/login">Login</Link>
+    </Button>
+  );
+  console.log(auth);
   return (
     <div className={classes.root}>
       <AppBar position="static">
@@ -49,12 +59,7 @@ export default function NavBar() {
           <Typography variant="h6" className={classes.title}>
             Unsplash Clone
           </Typography>
-          <Button color="inherit">
-            <Link className={classes.button} to="/login">
-              Login
-            </Link>
-          </Button>
-          {/* //<Button color="inherit">{auth ? user : guest}</Button> */}
+          {auth ? user : guest}
         </Toolbar>
       </AppBar>
     </div>

@@ -7,7 +7,7 @@ export function getAuth() {
   };
 }
 export function setAuth() {
-  console.log("Set Auth");
+  // console.log("Set Auth");
   return {
     type: SET_AUTH,
   };

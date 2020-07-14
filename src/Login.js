@@ -7,7 +7,7 @@ class Login extends Component {
     super(props);
   }
   handleLogin() {
-    console.log(this.props);
+    //console.log(this.props);
     const { dispatch, history } = this.props;
     dispatch(setAuth());
     history.push("/");

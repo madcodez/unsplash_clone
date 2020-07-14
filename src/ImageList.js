@@ -20,7 +20,7 @@ const useStyles = makeStyles({
 
 export default function ImageList({ image, auth }) {
   const classes = useStyles();
-
+  console.log(auth);
   return (
     <Card className={classes.root}>
       <CardActionArea>
@@ -40,7 +40,7 @@ export default function ImageList({ image, auth }) {
       </CardActionArea>
       <CardActions>
         <Button size="small" color="primary">
-          <Link to={`/edit/${image.id}`}>Edit</Link>
+          <Link to={!auth ? `/login` : `/edit/${image.id}`}>Edit</Link>
         </Button>
       </CardActions>
     </Card>
