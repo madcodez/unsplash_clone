@@ -18,7 +18,7 @@ class ImageContainer extends Component {
         <Grid container spacing={3}>
           {images.map((image) => (
             <Grid key={image.id} item xs={3}>
-              <ImageList image={image} auth={auth} />
+              <ImageList image={image} auth={auth.auth} />
             </Grid>
           ))}
         </Grid>
@@ -26,5 +26,5 @@ class ImageContainer extends Component {
     );
   }
 }
-const mapStateToProps = (state) => ({ ...state.images, ...state.auth });
+const mapStateToProps = (state) => ({ ...state.images, auth: state.auth });
 export default connect(mapStateToProps)(ImageContainer);
