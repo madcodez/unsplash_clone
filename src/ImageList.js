@@ -20,7 +20,7 @@ const useStyles = makeStyles({
 
 export default function ImageList({ image, auth }) {
   const classes = useStyles();
-  console.log(auth);
+  //console.log(auth);
   return (
     <Card className={classes.root}>
       <CardActionArea>

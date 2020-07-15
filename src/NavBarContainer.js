@@ -3,15 +3,12 @@ import { connect } from "react-redux";
 import NavBar from "./NavBar";
 
 class NavBarContainer extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
-    const { auth } = this.props;
+    const { auth, history, dispatch } = this.props;
     //console.log(this.props);
     return (
       <div>
-        <NavBar auth={auth.auth} />
+        <NavBar auth={auth.auth} history={history} dispatch={dispatch} />
       </div>
     );
   }

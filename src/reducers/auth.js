@@ -1,6 +1,11 @@
-import { GET_AUTH, SET_AUTH } from "../actions/authAction";
+import {
+  GET_AUTH,
+  SET_AUTH,
+  SET_USER,
+  REMOVE_USER,
+} from "../actions/authAction";
 
-export default function authState(state = "", action) {
+export default function authState(state = {}, action) {
   switch (action.type) {
     case GET_AUTH: {
       return { auth: false };
@@ -9,6 +14,18 @@ export default function authState(state = "", action) {
       //console.log(state);
       return {
         auth: !state.auth,
+      };
+    }
+    case SET_USER: {
+      return {
+        ...state,
+        currentAuthor: action.payload,
+      };
+    }
+    case REMOVE_USER: {
+      return {
+        ...state,
+        currentAuthor: {},
       };
     }
     default:
